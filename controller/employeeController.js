@@ -65,9 +65,26 @@ const updateEmployee = (req, res) => {
     });
 }
 
+const getEmployeeById = (req, res) => {
+    const { id } = req.params;
+    const query = 'SELECT * FROM employee WHERE id = ?';
+    db.query(query, [id], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (results.length === 0) {
+            return res.status(404).json({ message: 'Employee not found' });
+        }   
+        res.json(
+            results[0]
+        );
+    });
+};
+
 module.exports = {
     saveEmployee,
     getEmployees,
     deleteEmployee,
-    updateEmployee
+    updateEmployee,
+    getEmployeeById
 };
