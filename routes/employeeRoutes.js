@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {
      saveEmployee 
-    } = require('../controllers/employeeController');
+    } = require('../controller/employeeController');
 
 router.get('/get', saveEmployee);
 

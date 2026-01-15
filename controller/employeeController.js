@@ -1,5 +1,5 @@
 const saveEmployee= (req, res) => {
-  res.send('Hello migara!');
+  res.send('Hello jh!');
 };
 
 module.exports = {
