@@ -27,8 +27,19 @@ const getEmployees = (req, res) => {
     });
 };
 
+const deleteEmployee = (req,res) =>{
+    const { id } = req.params;
+    const query = 'DELETE FROM employee WHERE id = ?';
+    db.query(query,[id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({ message: 'Employee deleted successfully' });
+    });
+}
 
 module.exports = {
     saveEmployee,
-    getEmployees
+    getEmployees,
+    deleteEmployee
 };
