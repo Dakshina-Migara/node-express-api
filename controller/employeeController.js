@@ -17,6 +17,18 @@ const saveEmployee = (req, res) => {
     });
 };
 
+const getEmployees = (req, res) => {
+    const query = 'SELECT * FROM employee';
+    db.query(query, (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(results);
+    });
+};
+
+
 module.exports = {
-    saveEmployee
+    saveEmployee,
+    getEmployees
 };
