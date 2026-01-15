@@ -5,6 +5,6 @@ const {
      saveEmployee 
     } = require('../controller/employeeController');
 
-router.get('/get', saveEmployee);
+router.post('/save', saveEmployee);
 
 module.exports = router;
