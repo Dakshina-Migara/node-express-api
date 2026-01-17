@@ -1,7 +1,7 @@
 const db = require('../db/dbConnection');
 const jwt = require('jsonwebtoken');
 
-/* LOGIN */
+
 const login = (req, res) => {
   const { username } = req.body;
 
@@ -18,7 +18,7 @@ const login = (req, res) => {
   res.json({ token });
 };
 
-/* SAVE EMPLOYEE */
+
 const saveEmployee = (req, res) => {
   const { name, age, salary } = req.body;
   const photo = req.file ? req.file.filename : null;
@@ -42,7 +42,7 @@ const saveEmployee = (req, res) => {
   });
 };
 
-/* GET ALL */
+
 const getEmployees = (req, res) => {
   const query = 'SELECT * FROM employee';
 
@@ -54,7 +54,7 @@ const getEmployees = (req, res) => {
   });
 };
 
-/* DELETE */
+
 const deleteEmployee = (req, res) => {
   const { id } = req.params;
   const query = 'DELETE FROM employee WHERE id = ?';
@@ -70,7 +70,7 @@ const deleteEmployee = (req, res) => {
   });
 };
 
-/* UPDATE */
+
 const updateEmployee = (req, res) => {
   const { name, age, salary } = req.body;
   const { id } = req.params;
@@ -89,7 +89,7 @@ const updateEmployee = (req, res) => {
   });
 };
 
-/* GET BY ID */
+
 const getEmployeeById = (req, res) => {
   const { id } = req.params;
   const query = 'SELECT * FROM employee WHERE id = ?';
